@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import { motion, Variants } from "motion/react";
 import { Wallet, MapPin, Shield } from "lucide-react";
 import { GooglePlay } from "./icons/google-play";
 import { AppStore } from "./icons/app-store";
@@ -28,35 +31,88 @@ const keyPoints: KeyPoint[] = [
   },
 ];
 
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
+};
+
+const phoneVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.96, y: 30 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut" as const, delay: 0.1 },
+  },
+};
+
 export const ForDriverPartners = () => {
   return (
-    <section className="w-full overflow-hidden flex justify-center items-center">
+    <section className="w-full overflow-hidden flex justify-center items-center py-10 lg:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
           {/* Left Column: Driver Partner Value Proposition */}
-          <div className="lg:col-span-6 flex flex-col items-start text-left">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="lg:col-span-6 flex flex-col items-start text-left"
+          >
             {/* Badge */}
-            <span className="bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest rounded-full px-4 py-1.5 leading-none">
+            <motion.span
+              variants={itemVariants}
+              className="bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest rounded-full px-4 py-1.5 leading-none"
+            >
               For Driver Partners
-            </span>
+            </motion.span>
 
             {/* Heading */}
-            <h2 className="text-4xl lg:text-5xl font-bold text-neutral-900 leading-[1.15] tracking-tight mt-6 mb-6 font-sans">
+            <motion.h2
+              variants={itemVariants}
+              className="text-4xl lg:text-5xl font-bold text-neutral-900 leading-[1.15] tracking-tight mt-6 mb-6 font-sans"
+            >
               Become an Intercity <br className="hidden sm:inline" />
               <span className="text-primary">Cab Driver Partner</span>
-            </h2>
+            </motion.h2>
 
             {/* Paragraph Description */}
-            <p className="text-neutral-500 text-base md:text-lg leading-relaxed max-w-2xl mb-10">
+            <motion.p
+              variants={itemVariants}
+              className="text-neutral-500 text-base md:text-lg leading-relaxed max-w-2xl mb-10"
+            >
               Join AAVORide as a driver partner and earn more with intercity and
               outstation cab trips, flexible timings, secure payouts, and 24/7
               support.
-            </p>
+            </motion.p>
 
             {/* Key Features Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full mb-12">
+            <motion.div
+              variants={containerVariants}
+              className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full mb-12"
+            >
               {keyPoints.map((point, index) => (
-                <div key={index} className="flex flex-col items-start">
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  className="flex flex-col items-start"
+                >
                   <div>{point.icon}</div>
                   <h3 className="text-base font-bold text-neutral-900 mt-2 leading-tight">
                     {point.title}
@@ -64,12 +120,15 @@ export const ForDriverPartners = () => {
                   <p className="text-sm text-neutral-500 mt-1 leading-normal">
                     {point.description}
                   </p>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
             {/* App Store / Google Play Buttons */}
-            <div className="flex flex-wrap gap-4 w-full sm:w-auto">
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap gap-4 w-full sm:w-auto"
+            >
               {/* Google Play Button */}
               <a
                 href="#google-play"
@@ -101,22 +160,30 @@ export const ForDriverPartners = () => {
                   </span>
                 </div>
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Column: Mobile App Screenshot Display */}
           <div className="lg:col-span-6 relative md:flex justify-center lg:justify-end items-center w-full hidden">
             {/* Subtle glow background */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
 
-            <Image
-              src="/phone.png"
-              alt="AAVORide Partner Mobile App Showcase"
-              width={550}
-              height={800}
-              priority
-              className="relative z-10 w-full h-auto object-contain drop-shadow-2xl"
-            />
+            <motion.div
+              variants={phoneVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              className="relative w-full flex justify-center lg:justify-end items-center"
+            >
+              <Image
+                src="/phone.png"
+                alt="AAVORide Partner Mobile App Showcase"
+                width={550}
+                height={800}
+                priority
+                className="relative z-10 w-full h-auto object-contain drop-shadow-2xl"
+              />
+            </motion.div>
           </div>
         </div>
       </div>

@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { motion, Variants } from "motion/react";
 import { UserPlus, FileUp, ShieldCheck, Car } from "lucide-react";
 
 interface StepItem {
@@ -35,27 +38,72 @@ const steps: StepItem[] = [
   },
 ];
 
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
+};
+
+const stepVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
+};
+
 export const StartJourney = () => {
   return (
     <section className="w-full py-20 bg-white flex flex-col items-center relative">
       <div className="absolute top-0 left-[-272px] size-[570px] bg-primary rounded-full blur-[100px] pointer-events-none opacity-20" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center"
+      >
         {/* Title */}
-        <h2 className="text-4xl md:text-5xl font-extrabold text-neutral-900 tracking-tight leading-tight max-w-2xl font-sans">
+        <motion.h2
+          variants={itemVariants}
+          className="text-4xl md:text-5xl font-extrabold text-neutral-900 tracking-tight leading-tight max-w-2xl font-sans"
+        >
           Start Your Journey in <span className="text-primary">4 Steps</span>
-        </h2>
+        </motion.h2>
 
         {/* Paragraph */}
-        <p className="text-neutral-500 text-base md:text-lg mt-5 max-w-2xl leading-relaxed">
+        <motion.p
+          variants={itemVariants}
+          className="text-neutral-500 text-base md:text-lg mt-5 max-w-2xl leading-relaxed"
+        >
           We provide the tools and connections to help professional partners
           build a sustainable business with complete freedom.
-        </p>
+        </motion.p>
 
         {/* Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 lg:gap-12 mt-16 w-full max-w-5xl">
+        <motion.div
+          variants={containerVariants}
+          className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 lg:gap-12 mt-16 w-full max-w-5xl"
+        >
           {steps.map((step) => (
-            <div
+            <motion.div
               key={step.number}
+              variants={stepVariants}
               className="flex flex-col items-center text-center group"
             >
               {/* Circular Icon Container */}
@@ -70,10 +118,10 @@ export const StartJourney = () => {
               <p className="text-sm text-neutral-500 mt-2 max-w-[220px] leading-relaxed">
                 {step.description}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

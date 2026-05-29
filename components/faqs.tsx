@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { motion, Variants } from "motion/react";
 import { Badge } from "./ui/badge";
 import {
   Accordion,
@@ -52,38 +55,90 @@ const faqs = [
   },
 ];
 
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.06,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
+};
+
+const faqItemVariants: Variants = {
+  hidden: { opacity: 0, y: 12 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut" as const },
+  },
+};
+
 export const Faqs = () => {
   return (
-    <div className="flex flex-col items-center px-4 py-20 lg:py-28 overflow-hidden relative">
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      className="flex flex-col items-center px-4 py-20 lg:py-28 overflow-hidden relative"
+    >
       <div className="absolute bottom-[-92px] right-[-292px] size-[570px] bg-primary rounded-full blur-[100px] pointer-events-none opacity-20" />
-      <Badge className="bg-primary/10 text-primary uppercase px-4 tracking-wider py-1 h-auto mb-3">
-        Support Center
-      </Badge>
-      <h2 className="font-bold text-4xl md:text-5xl mb-4 text-center">
+      
+      <motion.div variants={itemVariants}>
+        <Badge className="bg-primary/10 text-primary uppercase px-4 tracking-wider py-1 h-auto mb-3">
+          Support Center
+        </Badge>
+      </motion.div>
+
+      <motion.h2
+        variants={itemVariants}
+        className="font-bold text-4xl md:text-5xl mb-4 text-center"
+      >
         Frequently Asked Questions
-      </h2>
-      <p className="text-muted-foreground mb-8 text-center">
+      </motion.h2>
+
+      <motion.p
+        variants={itemVariants}
+        className="text-muted-foreground mb-8 text-center"
+      >
         Everything you need to know about bookings, drivers, payments, and
         travel experience.
-      </p>
-      <div className="w-full max-w-3xl mb-4">
+      </motion.p>
+
+      <motion.div variants={containerVariants} className="w-full max-w-3xl mb-4">
         {faqs.map((faq, i) => (
-          <Accordion
-            key={i}
-            type="single"
-            collapsible
-            className="border-0 shadow-none bg-none"
-          >
-            <AccordionItem value={"item-" + i} className="bg-background p-4">
-              <AccordionTrigger className="text-lg font-normal">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent>{faq.answer}</AccordionContent>
-            </AccordionItem>
-          </Accordion>
+          <motion.div key={i} variants={faqItemVariants}>
+            <Accordion
+              type="single"
+              collapsible
+              className="border-0 shadow-none bg-none"
+            >
+              <AccordionItem value={"item-" + i} className="bg-background p-4">
+                <AccordionTrigger className="text-lg font-normal">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent>{faq.answer}</AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </motion.div>
         ))}
-      </div>
-      <div className="flex flex-col md:flex-row gap-4 md:items-center justify-between w-full max-w-3xl p-6 bg-primary/10 border border-primary/20 rounded-[32px]">
+      </motion.div>
+
+      <motion.div
+        variants={itemVariants}
+        className="flex flex-col md:flex-row gap-4 md:items-center justify-between w-full max-w-3xl p-6 bg-primary/10 border border-primary/20 rounded-[32px]"
+      >
         <div className="space-y-1">
           <h3 className="font-medium text-primary">Still have questions?</h3>
           <p className="text-muted-foreground">
@@ -96,7 +151,7 @@ export const Faqs = () => {
         >
           Chat with Support
         </Button>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };

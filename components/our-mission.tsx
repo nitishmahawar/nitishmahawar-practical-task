@@ -1,53 +1,127 @@
+"use client";
+
 import React from "react";
+import { motion, Variants } from "motion/react";
 import { BadgeCheck, Car, Building2 } from "lucide-react";
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
+};
+
+const cardContainerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12 },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 25 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" as const },
+  },
+};
 
 export const OurMission = () => {
   return (
-    <section className="relative w-full py-20 lg:py-28">
+    <section className="relative w-full py-20 lg:py-28 bg-white overflow-hidden">
       {/* Decorative background glow */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[350px] h-[350px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
           {/* Left Column: Mission Content */}
-          <div className="lg:col-span-6 flex flex-col items-start text-left">
-            <span className="bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest rounded-full px-4 py-1.5 leading-none">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="lg:col-span-6 flex flex-col items-start text-left"
+          >
+            <motion.span
+              variants={itemVariants}
+              className="bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest rounded-full px-4 py-1.5 leading-none"
+            >
               Our Mission
-            </span>
-
-            <h2 className="text-4xl lg:text-[50px] font-bold text-neutral-900 leading-[1.15] tracking-tight mt-6 mb-6 font-sans hidden lg:block">
+            </motion.span>
+            
+            {/* Heading for Desktop */}
+            <motion.h2
+              variants={itemVariants}
+              className="text-4xl lg:text-[50px] font-bold text-neutral-900 leading-[1.15] tracking-tight mt-6 mb-6 font-sans hidden lg:block"
+            >
               Empowering Drivers, Vehicle Owners & Rental Agencies
-            </h2>
+            </motion.h2>
 
-            <h2 className="lg:hidden text-neutral-900 text-4xl font-bold mb-6 mt-6">
+            {/* Heading for Mobile */}
+            <motion.h2
+              variants={itemVariants}
+              className="lg:hidden text-neutral-900 text-4xl font-bold mb-6 mt-6"
+            >
               Driving Prosperity Through{" "}
               <span className="text-primary">Reliable Mobility.</span>
-            </h2>
+            </motion.h2>
 
-            <p className="text-neutral-500 text-lg leading-relaxed max-w-xl hidden lg:block mb-6">
+            {/* Description for Desktop */}
+            <motion.p
+              variants={itemVariants}
+              className="text-neutral-500 text-lg leading-relaxed max-w-xl hidden lg:block mb-6"
+            >
               AAVORide helps drivers, vehicle owners, and rental agencies earn
               more with outstation rides, intercity trips, fleet management
               tools, and reliable mobility services across India.
-            </p>
-            <p className="lg:hidden text-neutral-500 mb-6">
+            </motion.p>
+            
+            {/* Description for Mobile */}
+            <motion.p
+              variants={itemVariants}
+              className="lg:hidden text-neutral-500 mb-6"
+            >
               To empower drivers, vehicle owners, and rental agencies with
               better earning opportunities while delivering reliable
               transportation services.
-            </p>
-
+            </motion.p>
+            
             {/* Trusted Badge */}
-            <div className="flex items-center gap-3 mt-4">
+            <motion.div variants={itemVariants} className="flex items-center gap-3 mt-4">
               <BadgeCheck className="w-6 h-6 text-primary fill-primary/10" />
               <span className="text-neutral-800 font-bold text-base">
                 Trusted by 10k+ Partners
               </span>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Column: Staggered Premium Cards */}
-          <div className="lg:col-span-6 flex flex-col gap-6 w-full max-w-md mx-auto lg:mx-0 lg:items-end justify-center">
+          <motion.div
+            variants={cardContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="lg:col-span-6 flex flex-col gap-6 w-full max-w-md mx-auto lg:mx-0 lg:items-end justify-center"
+          >
+            
             {/* Card 1: Driver */}
-            <div className="w-full bg-white md:max-w-xs rounded-[28px] p-6.5 flex items-center gap-5 border border-neutral-100 shadow-lg lg:-translate-x-12 transition-transform duration-300 hover:scale-[1.01]">
+            <motion.div
+              variants={cardVariants}
+              className="w-full bg-white md:max-w-xs rounded-[28px] p-6.5 flex items-center gap-5 border border-neutral-100 shadow-lg lg:-translate-x-12 transition-transform duration-300 hover:scale-[1.01]"
+            >
               <div className="w-14 h-14 bg-primary rounded-[20px] flex items-center justify-center shrink-0 shadow-lg shadow-primary/25">
                 <svg
                   width="24"
@@ -70,10 +144,13 @@ export const OurMission = () => {
                   Maximized daily earnings with flexible shifts.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Card 2: Vehicle Owner */}
-            <div className="w-full bg-white md:max-w-xs rounded-[28px] p-6.5 flex items-center gap-5 border border-neutral-100 shadow-lg lg:translate-x-0 transition-transform duration-300 hover:scale-[1.01]">
+            <motion.div
+              variants={cardVariants}
+              className="w-full bg-white md:max-w-xs rounded-[28px] p-6.5 flex items-center gap-5 border border-neutral-100 shadow-lg lg:translate-x-0 transition-transform duration-300 hover:scale-[1.01]"
+            >
               <div className="w-14 h-14 bg-white border border-neutral-100 rounded-[20px] flex items-center justify-center shrink-0 shadow-sm">
                 <Car className="w-6 h-6 text-primary" />
               </div>
@@ -85,10 +162,13 @@ export const OurMission = () => {
                   Passive income with secure fleet management.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Card 3: Rental Agency */}
-            <div className="w-full bg-white md:max-w-xs rounded-[28px] p-6.5 flex items-center gap-5 border border-neutral-100 shadow-lg lg:translate-x-12 transition-transform duration-300 hover:scale-[1.01]">
+            <motion.div
+              variants={cardVariants}
+              className="w-full bg-white md:max-w-xs rounded-[28px] p-6.5 flex items-center gap-5 border border-neutral-100 shadow-lg lg:translate-x-12 transition-transform duration-300 hover:scale-[1.01]"
+            >
               <div className="w-14 h-14 bg-white border border-neutral-100 rounded-[20px] flex items-center justify-center shrink-0 shadow-sm">
                 <Building2 className="w-6 h-6 text-primary" />
               </div>
@@ -100,8 +180,9 @@ export const OurMission = () => {
                   Scale operations with enterprise-grade tools.
                 </p>
               </div>
-            </div>
-          </div>
+            </motion.div>
+
+          </motion.div>
         </div>
       </div>
     </section>
