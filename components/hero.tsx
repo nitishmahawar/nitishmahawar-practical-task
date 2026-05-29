@@ -1,0 +1,138 @@
+import React from "react";
+import Image from "next/image";
+import {
+  LucideIcon,
+  Star,
+  BadgeCheck,
+  BarChart3,
+  UserMinus,
+} from "lucide-react";
+import partnerImage from "@/public/partner.png";
+
+interface StatItem {
+  title: string;
+  subtitle: string;
+  icon: LucideIcon;
+}
+
+const stats: StatItem[] = [
+  {
+    title: "10K+",
+    subtitle: "Successful Rides",
+    icon: Star,
+  },
+  {
+    title: "Verified",
+    subtitle: "Platform Trust",
+    icon: BadgeCheck,
+  },
+  {
+    title: "Transparent",
+    subtitle: "Full Earnings History",
+    icon: BarChart3,
+  },
+  {
+    title: "Direct",
+    subtitle: "No Middlemen",
+    icon: UserMinus,
+  },
+];
+
+export const Hero = () => {
+  return (
+    <section className="relative w-full bg-white overflow-hidden flex flex-col">
+      {/* Subtle background ambient glow */}
+      <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-primary/5 rounded-full blur-[120px] pointer-events-none -z-10" />
+
+      {/* Main Content Grid */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left Column: Hero Content */}
+          <div className="lg:col-span-6 flex flex-col items-start text-left">
+            {/* Badge */}
+            <span className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest rounded-full px-4 py-2 leading-none w-fit">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+              Trusted Mobility Partner Platform
+            </span>
+
+            {/* Heading */}
+            <h1 className="text-5xl lg:text-6xl font-extrabold text-neutral-900 leading-[1.1] tracking-tight mt-6 mb-4 font-sans">
+              Drive with <br />
+              <span className="text-primary">AAVORide Partner.</span> <br />
+              Earn Without Limits
+            </h1>
+
+            {/* Subtitle */}
+            <h3 className="text-xl lg:text-2xl font-bold text-neutral-800 mb-6 font-sans">
+              Driver, Agency & Car Owner Earning App
+            </h3>
+
+            {/* Paragraph Description */}
+            <p className="text-neutral-500 text-base md:text-lg leading-relaxed max-w-xl mb-8">
+              Earn daily with outstation rides, intercity trips, fleet
+              management, and flexible driving opportunities across India.
+            </p>
+
+            {/* CTA Button */}
+            <a
+              href="#start-earning"
+              className="h-14 px-9 bg-primary hover:bg-primary/95 text-white font-bold rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] text-base inline-flex items-center justify-center shadow-lg shadow-primary/15 cursor-pointer"
+            >
+              Start Earning Today
+            </a>
+          </div>
+
+          {/* Right Column: Hero Visual Asset */}
+          <div className="lg:col-span-6 relative flex justify-center lg:justify-end items-center w-full">
+            {/* Subtle glow background */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+
+            <Image
+              src="/hero.png"
+              alt="AAVORide Partner Mobile App Showcase"
+              width={720}
+              height={600}
+              priority
+              className="relative z-10 w-full h-auto object-contain"
+            />
+          </div>
+        </div>
+      </div>
+      <div className="lg:-mt-28 isolate z-10">
+        <Image
+          src={partnerImage}
+          alt="Partner Image"
+          width={500}
+          height={500}
+          className="mx-auto"
+        />
+      </div>
+      {/* Stats Bar */}
+      <div className="w-full bg-[#FFF5F3] md:py-8 py-12 min-h-38 border-t border-b border-primary/5 flex items-center justify-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 justify-items-center lg:justify-items-center">
+            {stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <div
+                  key={index}
+                  className="flex items-center gap-4.5 text-left"
+                >
+                  <Icon className="w-8 h-8 text-primary shrink-0" />
+                  <div className="flex flex-col leading-none">
+                    <span className="font-bold text-neutral-900 text-lg leading-tight">
+                      {stat.title}
+                    </span>
+                    <span className="text-sm text-neutral-500 mt-1.5 leading-none">
+                      {stat.subtitle}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
