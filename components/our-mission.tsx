@@ -40,13 +40,12 @@ const cardVariants: Variants = {
 
 export const OurMission = () => {
   return (
-    <section className="relative w-full py-20 lg:py-28 bg-white overflow-hidden">
+    <section className="relative w-full py-20 lg:py-28 overflow-hidden">
       {/* Decorative background glow */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[350px] h-[350px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
           {/* Left Column: Mission Content */}
           <motion.div
             variants={containerVariants}
@@ -61,7 +60,7 @@ export const OurMission = () => {
             >
               Our Mission
             </motion.span>
-            
+
             {/* Heading for Desktop */}
             <motion.h2
               variants={itemVariants}
@@ -88,7 +87,7 @@ export const OurMission = () => {
               more with outstation rides, intercity trips, fleet management
               tools, and reliable mobility services across India.
             </motion.p>
-            
+
             {/* Description for Mobile */}
             <motion.p
               variants={itemVariants}
@@ -98,9 +97,12 @@ export const OurMission = () => {
               better earning opportunities while delivering reliable
               transportation services.
             </motion.p>
-            
+
             {/* Trusted Badge */}
-            <motion.div variants={itemVariants} className="flex items-center gap-3 mt-4">
+            <motion.div
+              variants={itemVariants}
+              className="flex items-center gap-3 mt-4"
+            >
               <BadgeCheck className="w-6 h-6 text-primary fill-primary/10" />
               <span className="text-neutral-800 font-bold text-base">
                 Trusted by 10k+ Partners
@@ -116,7 +118,6 @@ export const OurMission = () => {
             viewport={{ once: true, margin: "-100px" }}
             className="lg:col-span-6 flex flex-col gap-6 w-full max-w-md mx-auto lg:mx-0 lg:items-end justify-center"
           >
-            
             {/* Card 1: Driver */}
             <motion.div
               variants={cardVariants}
@@ -181,7 +182,6 @@ export const OurMission = () => {
                 </p>
               </div>
             </motion.div>
-
           </motion.div>
         </div>
       </div>

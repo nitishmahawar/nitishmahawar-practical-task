@@ -75,14 +75,13 @@ const imageVariants: Variants = {
 
 export const Hero = () => {
   return (
-    <section className="relative w-full overflow-hidden flex flex-col">
+    <section className="relative w-full overflow-hidden flex flex-col px-4">
       {/* Subtle background ambient glow */}
       <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-primary/5 rounded-full blur-[120px] pointer-events-none -z-10" />
-      
+
       {/* Main Content Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
+      <div className="max-w-7xl mx-auto px-4 w-full pt-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
           {/* Left Column: Hero Content */}
           <motion.div
             variants={containerVariants}
@@ -98,7 +97,7 @@ export const Hero = () => {
               <span className="w-1.5 h-1.5 rounded-full bg-primary" />
               Trusted Mobility Partner Platform
             </motion.span>
-            
+
             {/* Heading for Desktop */}
             <motion.h1
               variants={itemVariants}
@@ -108,15 +107,16 @@ export const Hero = () => {
               <span className="text-primary">AAVORide Partner.</span> <br />
               Earn Without Limits
             </motion.h1>
-            
+
             {/* Heading for Mobile */}
             <motion.h1
               variants={itemVariants}
               className="text-4xl font-extrabold lg:hidden mt-6 mb-4"
             >
-              <span className="text-primary">Drive . Earn</span> <br /> Be Your Own Boss
+              <span className="text-primary">Drive . Earn</span> <br /> Be Your
+              Own Boss
             </motion.h1>
-            
+
             {/* Subtitle */}
             <motion.h3
               variants={itemVariants}
@@ -124,16 +124,16 @@ export const Hero = () => {
             >
               Driver, Agency & Car Owner Earning App
             </motion.h3>
-            
+
             {/* Paragraph Description for Desktop */}
             <motion.p
               variants={itemVariants}
               className="text-neutral-500 text-base md:text-lg leading-relaxed max-w-xl mb-8 hidden lg:block"
             >
-              Earn daily with outstation rides, intercity trips, fleet management, and
-              flexible driving opportunities across India.
+              Earn daily with outstation rides, intercity trips, fleet
+              management, and flexible driving opportunities across India.
             </motion.p>
-            
+
             {/* Paragraph Description for Mobile */}
             <motion.p
               variants={itemVariants}
@@ -143,7 +143,7 @@ export const Hero = () => {
               flexible work, fleet management, and passive income opportunities
               powered by AAVORIDE.
             </motion.p>
-            
+
             {/* CTA Button for Desktop */}
             <motion.a
               variants={itemVariants}
@@ -154,7 +154,7 @@ export const Hero = () => {
             >
               Start Earning Today
             </motion.a>
-            
+
             {/* CTA Button for Mobile */}
             <motion.a
               variants={itemVariants}
@@ -183,17 +183,52 @@ export const Hero = () => {
                 priority
                 className="relative z-10 w-full h-auto object-contain"
               />
+              <div className="top-4 left-0 absolute z-10">
+                <Image
+                  src="/car-icon.png"
+                  height={80}
+                  width={100}
+                  alt="car-icon"
+                  className="w-6 mb-1 ml-4 h-auto"
+                />
+                <Image
+                  src="/car-line.png"
+                  height={80}
+                  width={100}
+                  alt="arrow"
+                />
+              </div>
+              <div className="top-0 right-6 absolute z-10">
+                <Image
+                  src="/location-icon.png"
+                  height={80}
+                  width={100}
+                  alt="location-icon"
+                  className="h-auto w-4 ml-20 mb-1"
+                />
+                <Image
+                  src="/location-line.png"
+                  height={80}
+                  width={100}
+                  alt="arrow"
+                />
+              </div>
 
               {/* Floating Card 1: Fast Payouts */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9, y: 10 }}
                 animate={{ opacity: 1, scale: 1, y: [0, -8, 0] }}
                 transition={{
-                  y: { repeat: Infinity, duration: 4, ease: "easeInOut" as const, delay: 0.5 },
+                  y: {
+                    repeat: Infinity,
+                    duration: 4,
+                    ease: "easeInOut" as const,
+                    delay: 0.5,
+                  },
                   opacity: { duration: 0.5, delay: 0.4 },
                   scale: { duration: 0.5, delay: 0.4 },
                 }}
-                className="hidden sm:flex absolute top-[12%] right-[-6%] z-20 bg-white/70 backdrop-blur-lg shadow-lg border border-white/30 rounded-full p-4 items-center gap-3 hover:scale-105 transition-all duration-300"
+                className="hidden sm:flex absolute top-[10%] left-1/2 z-20 bg-white/70 backdrop-blur-lg shadow-lg border border-white/30 rounded-full p-4 items-center gap-3 hover:scale-105 transition-all duration-300"
               >
                 <div className="bg-green-50 text-green-600 p-2.5 rounded-full shrink-0">
                   <Wallet className="w-5 h-5" />
@@ -213,7 +248,12 @@ export const Hero = () => {
                 initial={{ opacity: 0, scale: 0.9, y: 10 }}
                 animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
                 transition={{
-                  y: { repeat: Infinity, duration: 4.5, ease: "easeInOut" as const, delay: 0.2 },
+                  y: {
+                    repeat: Infinity,
+                    duration: 4.5,
+                    ease: "easeInOut" as const,
+                    delay: 0.2,
+                  },
                   opacity: { duration: 0.5, delay: 0.6 },
                   scale: { duration: 0.5, delay: 0.6 },
                 }}
@@ -237,7 +277,12 @@ export const Hero = () => {
                 initial={{ opacity: 0, scale: 0.9, y: 10 }}
                 animate={{ opacity: 1, scale: 1, y: [0, -12, 0] }}
                 transition={{
-                  y: { repeat: Infinity, duration: 5, ease: "easeInOut" as const, delay: 0.8 },
+                  y: {
+                    repeat: Infinity,
+                    duration: 5,
+                    ease: "easeInOut" as const,
+                    delay: 0.8,
+                  },
                   opacity: { duration: 0.5, delay: 0.8 },
                   scale: { duration: 0.5, delay: 0.8 },
                 }}
@@ -257,10 +302,9 @@ export const Hero = () => {
               </motion.div>
             </motion.div>
           </div>
-          
         </div>
       </div>
-      
+
       {/* Partner image */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -277,7 +321,7 @@ export const Hero = () => {
           className="mx-auto"
         />
       </motion.div>
-      
+
       {/* Stats Bar */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
