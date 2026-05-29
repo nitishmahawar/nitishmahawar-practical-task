@@ -40,7 +40,7 @@ const stats: StatItem[] = [
 
 export const Hero = () => {
   return (
-    <section className="relative w-full bg-white overflow-hidden flex flex-col">
+    <section className="relative w-full overflow-hidden flex flex-col">
       {/* Subtle background ambient glow */}
       <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-primary/5 rounded-full blur-[120px] pointer-events-none -z-10" />
 
