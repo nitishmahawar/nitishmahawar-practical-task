@@ -10,7 +10,7 @@ import React from "react";
 
 const Page = () => {
   return (
-    <div className="overflow-hidden relative">
+    <div className="overflow-hidden relative bg-background">
       <div className="absolute top-[900px] right-[-292px] size-[570px] bg-primary rounded-full blur-[100px] pointer-events-none opacity-30" />
       <Header />
       <Hero />

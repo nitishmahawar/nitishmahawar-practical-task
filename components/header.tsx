@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "./ui/button";
+import { Menu } from "lucide-react";
 
 export const Header = () => {
   return (
@@ -13,6 +14,9 @@ export const Header = () => {
         </div>
         <Button className="shadow-md shadow-primary/20 hidden lg:block">
           Join as a AAVORide Partner
+        </Button>
+        <Button variant="ghost" size="icon" className="lg:hidden">
+          <Menu />
         </Button>
       </div>
     </header>

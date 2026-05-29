@@ -105,7 +105,7 @@ export const ForDriverPartners = () => {
           </div>
 
           {/* Right Column: Mobile App Screenshot Display */}
-          <div className="lg:col-span-6 relative flex justify-center lg:justify-end items-center w-full">
+          <div className="lg:col-span-6 relative md:flex justify-center lg:justify-end items-center w-full hidden">
             {/* Subtle glow background */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
 

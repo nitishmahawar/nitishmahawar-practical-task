@@ -6,6 +6,9 @@ import {
   BadgeCheck,
   BarChart3,
   UserMinus,
+  Wallet,
+  Headphones,
+  Users,
 } from "lucide-react";
 import partnerImage from "@/public/partner.png";
 
@@ -56,10 +59,15 @@ export const Hero = () => {
             </span>
 
             {/* Heading */}
-            <h1 className="text-5xl lg:text-6xl font-extrabold text-neutral-900 leading-[1.1] tracking-tight mt-6 mb-4 font-sans">
+            <h1 className="text-5xl lg:text-6xl font-extrabold text-neutral-900 leading-[1.1] tracking-tight mt-6 mb-4 font-sans hidden lg:block">
               Drive with <br />
               <span className="text-primary">AAVORide Partner.</span> <br />
               Earn Without Limits
+            </h1>
+
+            <h1 className="text-4xl font-extrabold lg:hidden mt-6 mb-4">
+              <span className="text-primary">Drive . Earn</span> <br /> Be Your
+              Own Boss
             </h1>
 
             {/* Subtitle */}
@@ -68,25 +76,34 @@ export const Hero = () => {
             </h3>
 
             {/* Paragraph Description */}
-            <p className="text-neutral-500 text-base md:text-lg leading-relaxed max-w-xl mb-8">
+            <p className="text-neutral-500 text-base md:text-lg leading-relaxed max-w-xl mb-8 hidden lg:block">
               Earn daily with outstation rides, intercity trips, fleet
               management, and flexible driving opportunities across India.
+            </p>
+
+            <p className="text-neutral-500 text-base md:text-lg leading-relaxed max-w-xl mb-8 lg:hidden">
+              One platform for Drivers, Agencies & Car Owners earn more with
+              flexible work, fleet management, and passive income opportunities
+              powered by AAVORIDE.
             </p>
 
             {/* CTA Button */}
             <a
               href="#start-earning"
-              className="h-14 px-9 bg-primary hover:bg-primary/95 text-white font-bold rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] text-base inline-flex items-center justify-center shadow-lg shadow-primary/15 cursor-pointer"
+              className="h-14 px-9 bg-primary hover:bg-primary/95 text-white font-bold rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] text-base items-center justify-center shadow-lg shadow-primary/15 cursor-pointer hidden lg:inline-flex"
             >
               Start Earning Today
+            </a>
+            <a
+              href="#start-earning"
+              className="h-12 px-9 bg-primary hover:bg-primary/95 text-white font-bold rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] text-base inline-flex items-center justify-center shadow-lg shadow-primary/15 cursor-pointer lg:hidden w-fit"
+            >
+              Join Today
             </a>
           </div>
 
           {/* Right Column: Hero Visual Asset */}
           <div className="lg:col-span-6 relative flex justify-center lg:justify-end items-center w-full">
-            {/* Subtle glow background */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
-
             <Image
               src="/hero.png"
               alt="AAVORide Partner Mobile App Showcase"
@@ -95,6 +112,51 @@ export const Hero = () => {
               priority
               className="relative z-10 w-full h-auto object-contain"
             />
+
+            {/* Floating Card 1: Fast Payouts */}
+            <div className="hidden sm:flex absolute top-[12%] right-[-6%] z-20 bg-white/70 backdrop-blur-lg shadow-lg border border-white/30 rounded-full p-4 items-center gap-3 hover:scale-105 transition-all duration-300">
+              <div className="bg-green-50 text-green-600 p-2.5 rounded-full shrink-0">
+                <Wallet className="w-5 h-5" />
+              </div>
+              <div className="flex flex-col text-left">
+                <span className="text-[10px] font-medium text-neutral-400 uppercase tracking-widest leading-none">
+                  Fast Payouts
+                </span>
+                <span className="text-sm font-bold text-neutral-900 mt-1.5 leading-none">
+                  Instant Earnings
+                </span>
+              </div>
+            </div>
+
+            {/* Floating Card 2: Live Assistance */}
+            <div className="hidden sm:flex absolute bottom-[10%] left-[2%] z-20 bg-white/70 backdrop-blur-lg shadow-lg border border-white/30 rounded-full p-4 items-center gap-3 hover:scale-105 transition-all duration-300">
+              <div className="bg-blue-50 text-blue-600 p-2.5 rounded-full shrink-0">
+                <Headphones className="w-5 h-5" />
+              </div>
+              <div className="flex flex-col text-left">
+                <span className="text-[10px] font-medium text-neutral-400 uppercase tracking-widest leading-none">
+                  Live Assistance
+                </span>
+                <span className="text-sm font-bold text-neutral-900 mt-1.5 leading-none">
+                  24/7 Support
+                </span>
+              </div>
+            </div>
+
+            {/* Floating Card 3: Active Community */}
+            <div className="hidden sm:flex absolute bottom-[16%] right-[-2%] z-20 bg-white/70 backdrop-blur-lg shadow-lg border border-white/30 rounded-full p-4 items-center gap-3 hover:scale-105 transition-all duration-300">
+              <div className="bg-primary/10 text-primary p-2.5 rounded-full shrink-0">
+                <Users className="w-5 h-5" />
+              </div>
+              <div className="flex flex-col text-left">
+                <span className="text-[10px] font-medium text-neutral-400 uppercase tracking-widest leading-none">
+                  Active Community
+                </span>
+                <span className="text-sm font-bold text-neutral-900 mt-1.5 leading-none">
+                  10K+ Partners
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

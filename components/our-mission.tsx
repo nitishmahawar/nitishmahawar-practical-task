@@ -47,7 +47,7 @@ export const OurMission = () => {
           {/* Right Column: Staggered Premium Cards */}
           <div className="lg:col-span-6 flex flex-col gap-6 w-full max-w-md mx-auto lg:mx-0 lg:items-end justify-center">
             {/* Card 1: Driver */}
-            <div className="w-full bg-white max-w-xs rounded-[28px] p-6.5 flex items-center gap-5 border border-neutral-100 shadow-lg lg:-translate-x-12 transition-transform duration-300 hover:scale-[1.01]">
+            <div className="w-full bg-white md:max-w-xs rounded-[28px] p-6.5 flex items-center gap-5 border border-neutral-100 shadow-lg lg:-translate-x-12 transition-transform duration-300 hover:scale-[1.01]">
               <div className="w-14 h-14 bg-primary rounded-[20px] flex items-center justify-center shrink-0 shadow-lg shadow-primary/25">
                 <svg
                   width="24"
@@ -73,7 +73,7 @@ export const OurMission = () => {
             </div>
 
             {/* Card 2: Vehicle Owner */}
-            <div className="w-full bg-white max-w-xs rounded-[28px] p-6.5 flex items-center gap-5 border border-neutral-100 shadow-lg lg:translate-x-0 transition-transform duration-300 hover:scale-[1.01]">
+            <div className="w-full bg-white md:max-w-xs rounded-[28px] p-6.5 flex items-center gap-5 border border-neutral-100 shadow-lg lg:translate-x-0 transition-transform duration-300 hover:scale-[1.01]">
               <div className="w-14 h-14 bg-white border border-neutral-100 rounded-[20px] flex items-center justify-center shrink-0 shadow-sm">
                 <Car className="w-6 h-6 text-primary" />
               </div>
@@ -88,7 +88,7 @@ export const OurMission = () => {
             </div>
 
             {/* Card 3: Rental Agency */}
-            <div className="w-full bg-white max-w-xs rounded-[28px] p-6.5 flex items-center gap-5 border border-neutral-100 shadow-lg lg:translate-x-12 transition-transform duration-300 hover:scale-[1.01]">
+            <div className="w-full bg-white md:max-w-xs rounded-[28px] p-6.5 flex items-center gap-5 border border-neutral-100 shadow-lg lg:translate-x-12 transition-transform duration-300 hover:scale-[1.01]">
               <div className="w-14 h-14 bg-white border border-neutral-100 rounded-[20px] flex items-center justify-center shrink-0 shadow-sm">
                 <Building2 className="w-6 h-6 text-primary" />
               </div>
