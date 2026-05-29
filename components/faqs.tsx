@@ -93,8 +93,9 @@ export const Faqs = () => {
       viewport={{ once: true, margin: "-100px" }}
       className="flex flex-col items-center px-4 py-20 lg:py-28 overflow-hidden relative"
     >
-      <div className="absolute bottom-[-92px] right-[-292px] size-[570px] bg-primary rounded-full blur-[100px] pointer-events-none opacity-20" />
-      
+      <div className="absolute bottom-[-92px] right-[-292px] size-[570px] bg-primary rounded-full blur-[100px] pointer-events-none opacity-20 hidden lg:block" />
+      <div className="absolute bottom-[292px] left-[-175px] size-[350px] bg-primary rounded-full blur-[100px] pointer-events-none opacity-20 lg:hidden" />
+
       <motion.div variants={itemVariants}>
         <Badge className="bg-primary/10 text-primary uppercase px-4 tracking-wider py-1 h-auto mb-3">
           Support Center
@@ -116,7 +117,10 @@ export const Faqs = () => {
         travel experience.
       </motion.p>
 
-      <motion.div variants={containerVariants} className="w-full max-w-3xl mb-4">
+      <motion.div
+        variants={containerVariants}
+        className="w-full max-w-3xl mb-4"
+      >
         {faqs.map((faq, i) => (
           <motion.div key={i} variants={faqItemVariants}>
             <Accordion

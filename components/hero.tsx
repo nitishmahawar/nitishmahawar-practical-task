@@ -75,7 +75,7 @@ const imageVariants: Variants = {
 
 export const Hero = () => {
   return (
-    <section className="relative w-full overflow-hidden flex flex-col px-4">
+    <section className="relative w-full overflow-hidden flex flex-col">
       {/* Subtle background ambient glow */}
       <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-primary/5 rounded-full blur-[120px] pointer-events-none -z-10" />
 
@@ -181,9 +181,17 @@ export const Hero = () => {
                 width={720}
                 height={600}
                 priority
-                className="relative z-10 w-full h-auto object-contain"
+                className="relative hidden md:block z-10 w-full h-auto object-contain"
               />
-              <div className="top-4 left-0 absolute z-10">
+              <Image
+                src="/hero-mobile.png"
+                alt="AAVORide Partner Mobile App Showcase"
+                width={720}
+                height={600}
+                priority
+                className="relative md:hidden z-10 w-full h-auto object-contain"
+              />
+              <div className="top-4 left-0 absolute z-10 hidden md:block">
                 <Image
                   src="/car-icon.png"
                   height={80}
@@ -198,7 +206,7 @@ export const Hero = () => {
                   alt="arrow"
                 />
               </div>
-              <div className="top-0 right-6 absolute z-10">
+              <div className="top-0 right-6 absolute z-10 hidden md:block">
                 <Image
                   src="/location-icon.png"
                   height={80}
@@ -337,7 +345,7 @@ export const Hero = () => {
               return (
                 <div
                   key={index}
-                  className="flex items-center gap-4.5 text-left"
+                  className="flex items-center w-full max-w-[188px] gap-4.5 text-left"
                 >
                   <Icon className="w-8 h-8 text-primary shrink-0" />
                   <div className="flex flex-col leading-none">

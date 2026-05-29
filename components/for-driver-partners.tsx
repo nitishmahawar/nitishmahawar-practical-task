@@ -66,7 +66,6 @@ export const ForDriverPartners = () => {
     <section className="w-full overflow-hidden flex justify-center items-center py-10 lg:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          
           {/* Left Column: Driver Partner Value Proposition */}
           <motion.div
             variants={containerVariants}
@@ -105,13 +104,13 @@ export const ForDriverPartners = () => {
             {/* Key Features Row */}
             <motion.div
               variants={containerVariants}
-              className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full mb-12"
+              className="flex flex-col md:flex-row items-center gap-8 w-full mb-12"
             >
               {keyPoints.map((point, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="flex flex-col items-start"
+                  className="flex flex-col max-w-[200px] w-full sm:max-w-full"
                 >
                   <div>{point.icon}</div>
                   <h3 className="text-base font-bold text-neutral-900 mt-2 leading-tight">
